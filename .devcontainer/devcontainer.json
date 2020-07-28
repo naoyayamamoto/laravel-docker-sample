@@ -11,11 +11,11 @@
         "terminal.integrated.shell.linux": "/bin/bash"
     },
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [],
+    "forwardPorts": [],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "composer install && npm install",
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "composer install && npm install && composer run post-root-package-install && composer run post-create-project-cmd",
 
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+    // Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
 }

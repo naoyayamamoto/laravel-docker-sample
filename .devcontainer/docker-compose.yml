@@ -8,15 +8,15 @@ services:
     volumes:
       - php-fpm-socket:/var/run/php-fpm
       - ../:/workspace:cached
+    environment:
+      DB_HOST: db
   db:
     image: mysql:8
     volumes:
       - ./docker/mysql/my.cnf:/etc/my.cnf
       - db-store:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: laraveluser
-      MYSQL_PASSWORD: laravelpass
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_DATABASE: laravel
   web:
     image: nginx:alpine
