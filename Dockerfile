@@ -2,7 +2,7 @@
 FROM node as nodebuilder
 # Dependency
 WORKDIR /workspace
-COPY package*.json .
+COPY package*.json ./
 RUN npm install
 
 # Application
